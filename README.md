@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm soulreaper</h1>
+<h1 align="center">Hi 👋, I'm soulthreader</h1>
 <h3 align="center">Python & Web Developer</h3>
 
 <p align="center">
