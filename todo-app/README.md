@@ -10,21 +10,7 @@ Read this README first to understand what I’m learning, what I want to try nex
 
 - [Robotics learning area](robotics-learning/): the main hands-on learning area, with beginner notes and a tiny Python sensor-reading simulation to expand later.
 - [Web starter](web-starter/): a secondary HTML/CSS practice project, kept small so I can focus on learning fundamentals.
-- [Soulreaper's To Do list](todo-app/): my first project built with GitHub Copilot and AI support.
 - [Learning roadmap](#learning-roadmap): the skills I’m working toward next.
-
-## Soulreaper's To Do list
-
-This is my first project using GitHub Copilot and AI. It is a local-first to-do app that helps me practice building a complete, useful web project while learning how AI can support the development process.
-
-The app supports two ways to work:
-
-- **Build your own lists:** create multiple named lists, add tasks, edit them, complete them, delete them, filter them, and save everything locally.
-- **Improve an existing file:** import a text file, CSV, JSON file, Word document, spreadsheet, or PowerPoint presentation. The app scans readable content locally, points out areas that may need improvement, explains how to fix them, and creates specific follow-up tasks.
-
-It also includes multiple languages, private local profiles with PIN protection, and read-only sharing links so someone can view a list without editing it. The project is dependency-free and can be opened directly from [`todo-app/index.html`](todo-app/index.html).
-
-See the [`todo-app/README.md`](todo-app/README.md) file for the purpose of each source file and guidance for making human-friendly edits.
 
 ## Current skills and technologies
 
