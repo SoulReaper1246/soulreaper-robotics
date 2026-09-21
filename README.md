@@ -17,6 +17,8 @@ Read this README first to understand what I’m learning, what I want to try nex
 
 This is my first project using GitHub Copilot and AI. It is a local-first to-do app that helps me practice building a complete, useful web project while learning how AI can support the development process.
 
+**Current release: 0.1.0**
+
 The app supports two ways to work:
 
 - **Build your own lists:** create multiple named lists, add tasks, edit them, complete them, delete them, filter them, and save everything locally.
