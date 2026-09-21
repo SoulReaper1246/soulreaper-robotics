@@ -15,7 +15,7 @@ Read this README first to understand what I’m learning, what I want to try nex
 
 ## Soulreaper's To Do list
 
-This is my first project using GitHub Copilot and AI. It is a local-first to-do app that helps me practice building a complete, useful web project while learning how AI can support the development process.
+This is my first project using GitHub Copilot/AI. It is a local-first to-do app that helps me practice building a complete, useful web project while learning how AI can support the development process.
 
 **Current release: 0.1.0**
 
