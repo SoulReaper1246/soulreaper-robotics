@@ -1,6 +1,6 @@
 # SoulReaper Robotics
 
-Hi, I’m **SoulReaper1246**. I’m a beginner programmer learning how software and hardware work together through robotics engineering, while also exploring web development. This README is the main presentation for my learning repository: a place to document small experiments, share what I’m practicing, and improve one project at a time.
+Hi, I’m **SoulReaper1246**. I’m a beginner programmer learning how software and hardware work together through robotics engineering, while also exploring web development. This README is the main presentation for my learning repository: a place to document small experiments, share what I’m practicing, and improve one project at a time. While also using ai to help me on my journey and would love it if maybe someone else joined me on. My journey and helped me out.
 
 I’m not presenting myself as an expert. I’m building fundamentals, asking questions, and keeping the projects here small enough to understand and explain.
 
