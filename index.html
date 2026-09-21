@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Today â€” To-do list</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="language-row">
+        <label for="language-select" hidden>Language</label>
+        <select id="language-select" class="language-select" aria-label="Language">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="fr">FranÃ§ais</option>
+          <option value="ar">Ø§Ù„Ø¹Ø±Ø¨ÙŠØ©</option>
+          <option value="es">EspaÃ±ol</option>
+          <option value="pt">PortuguÃªs</option>
+          <option value="tr">TÃ¼rkÃ§e</option>
+          <option value="ja">æ—¥æœ¬èªž</option>
+          <option value="zh">ç®€ä½“ä¸­æ–‡</option>
+          <option value="ru">Ð ÑƒÑÑÐºÐ¸Ð¹</option>
+          <option value="nl">Nederlands</option>
+        </select>
+      </div>
+      <div class="profile-bar">
+        <span><span data-i18n="signedInAs">Personal space:</span> <strong id="profile-name">—</strong></span>
+        <button id="lock-profile-button" class="profile-button" type="button" data-i18n="lock">Lock</button>
+      </div>
+      <p class="eyebrow" data-i18n="eyebrow">A little progress</p>
+      <h1 data-i18n="title">My to-dos</h1>
+      <p class="subtitle" data-i18n="subtitle">Keep the important things moving.</p>
+    </header>
+
+    <div class="list-switcher">
+      <label for="list-select" hidden>Task list</label>
+      <select id="list-select" class="list-select" aria-label="Task list"></select>
+      <button id="new-list-button" class="new-list-button" type="button" data-i18n="newList">+ New list</button>
+      <button id="delete-list-button" class="delete-list-button" type="button" data-i18n="deleteList" aria-label="Delete current list">Delete</button>
+      <button id="share-list-button" class="share-list-button" type="button" data-i18n="share">Share</button>
+    </div>
+
+    <form id="task-form">
+      <label id="new-task-label" for="task-input" hidden>New task</label>
+      <input id="task-input" type="text" maxlength="120" placeholder="What needs doing?" autocomplete="off" required data-i18n-placeholder="input">
+      <button class="add-button" type="submit" data-i18n="add">Add</button>
+    </form>
+
+    <section class="review-card" aria-labelledby="review-title">
+      <h2 id="review-title" data-i18n="reviewTitle">Review a file</h2>
+      <p data-i18n="reviewDescription">Upload a Word document, spreadsheet, or PowerPoint to find improvement tasks. Files stay on your device.</p>
+      <label class="file-picker">
+        <span data-i18n="chooseFile">Choose file</span>
+        <input id="file-input" type="file" accept=".txt,.md,.csv,.json,.docx,.xlsx,.pptx,.doc,.xls,.ppt">
+      </label>
+      <div id="review-status" class="review-status" aria-live="polite"></div>
+      <ul id="insights" class="insights" hidden></ul>
+    </section>
+
+    <section aria-labelledby="list-title">
+      <div class="list-heading">
+        <span id="list-title" data-i18n="tasks">Tasks</span>
+        <span id="task-count" aria-live="polite"></span>
+      </div>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" data-filter="all" type="button" data-i18n="all">All</button>
+          <button class="filter-button" data-filter="active" type="button" data-i18n="open">Open</button>
+          <button class="filter-button" data-filter="completed" type="button" data-i18n="done">Done</button>
+        </div>
+        <span id="hint" class="subtitle" style="margin:0;font-size:12px" data-i18n="hint">Double-click to edit</span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+      <ul id="task-list"></ul>
+      <p id="empty-state" class="empty" hidden></p>
+    </section>
+
+    <footer>
+      <span id="progress"></span>
+      <button id="clear-completed" class="clear-button" type="button" data-i18n="clear">Clear completed</button>
+    </footer>
+  </main>
+
+  <div id="profile-gate" class="modal-backdrop">
+    <section class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-gate-title">
+      <p class="eyebrow" data-i18n="privateEyebrow">Private workspace</p>
+      <h2 id="profile-gate-title" data-i18n="welcome">Welcome</h2>
+      <p class="modal-description" data-i18n="privacyNote">Your lists stay in this browser and are separated by profile. This works locally; it is not a replacement for server account security.</p>
+      <form id="profile-form">
+        <label for="profile-input" data-i18n="profileName">Profile name</label>
+        <input id="profile-input" type="text" maxlength="40" autocomplete="username" required>
+        <label for="profile-pin" data-i18n="pin">PIN</label>
+        <input id="profile-pin" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="current-password" required>
+        <label id="confirm-pin-label" for="profile-pin-confirm" data-i18n="confirmPin">Confirm PIN</label>
+        <input id="profile-pin-confirm" type="password" inputmode="numeric" minlength="4" maxlength="32" autocomplete="new-password" required>
+        <p id="profile-error" class="modal-error" role="alert" hidden></p>
+        <div class="modal-actions">
+          <button id="profile-submit" class="add-button" type="submit" data-i18n="continue">Continue</button>
+        </div>
+      </form>
+      <button id="profile-mode-button" class="profile-mode-button" type="button" data-i18n="existingProfile">I already have a profile</button>
+    </section>
+  </div>
+
+  <div id="new-list-modal" class="modal-backdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="new-list-title">
+      <button id="close-list-modal" class="modal-close" type="button" aria-label="Close">&times;</button>
+      <p class="eyebrow" data-i18n="newListEyebrow">Organize your work</p>
+      <h2 id="new-list-title" data-i18n="newListTitle">Create a new list</h2>
+      <p class="modal-description" data-i18n="newListDescription">Give your list a name so you can keep related tasks together.</p>
+      <form id="new-list-form">
+        <label for="new-list-name" data-i18n="newListLabel">List name</label>
+        <input id="new-list-name" type="text" maxlength="40" autocomplete="off" required data-i18n-placeholder="newListPlaceholder">
+        <p id="new-list-error" class="modal-error" role="alert" hidden></p>
+        <div class="modal-actions">
+          <button id="cancel-list-button" class="modal-cancel" type="button" data-i18n="cancel">Cancel</button>
+          <button class="add-button" type="submit" data-i18n="createList">Create list</button>
+        </div>
+
+        <div id="share-modal" class="modal-backdrop" hidden>
+          <section class="modal" role="dialog" aria-modal="true" aria-labelledby="share-title">
+            <button id="close-share-modal" class="modal-close" type="button" aria-label="Close">&times;</button>
+            <p class="eyebrow" data-i18n="shareEyebrow">Read-only sharing</p>
+            <h2 id="share-title" data-i18n="shareTitle">Share this list</h2>
+            <p class="modal-description" data-i18n="shareDescription">Anyone with the link can view a snapshot, but they cannot edit your list.</p>
+            <input id="share-link" class="share-link" type="text" readonly aria-label="Read-only share link">
+            <div class="modal-actions">
+              <button id="copy-share-link" class="add-button" type="button" data-i18n="copyLink">Copy link</button>
+              <button id="cancel-share-button" class="modal-cancel" type="button" data-i18n="cancel">Cancel</button>
+            </div>
+            <p id="share-status" class="review-status" aria-live="polite"></p>
+          </section>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
